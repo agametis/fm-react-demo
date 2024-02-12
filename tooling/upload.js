@@ -1,11 +1,7 @@
 import open from "open";
 import path from "path";
-// import url from "url";
 
 import {config} from "./config.js";
-
-//const __filename = url.fileURLToPath(import.meta.url);
-// const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 // using node >=20.11
 const __dirname = import.meta.dirname;
