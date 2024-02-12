@@ -1,0 +1,41 @@
+{
+  "name": "fm-react-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "source": "src/index.html",
+  "description": "Bidirectional communication between FileMaker and React",
+  "author": "agametis - Dr. Adam G. Augustin",
+  "alias": {
+    "fmFetch": "@proofgeist/fm-webviewer-fetch/dist/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agametis/fm-react-demo.git"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel --no-source-maps --open",
+    "watch": "parcel watch --no-source-maps",
+    "build": "parcel build --no-source-maps",
+    "upload": "node ./tooling/upload",
+    "deploy-to-fm": "yarn build && yarn upload"
+  },
+  "dependencies": {
+    "@proofgeist/fm-webviewer-fetch": "^2.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-typescript-tsc": "^2.11.0",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.18",
+    "open": "^10.0.3",
+    "parcel": "^2.11.0",
+    "process": "^0.11.10",
+    "typescript": ">=3.0.0"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}
