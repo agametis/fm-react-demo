@@ -15,14 +15,19 @@
     </script>
     <!-- For calls directly from FileMaker -->
     <script type="text/javascript">
-      const send_data_to_webviewer = (param) => {
+      function send_data_to_webviewer (param) {
         window.reactGateway.gatewayGetDataFromFM(param);
         console.log("'send_data_to_webviewer' was called", param);
       };
-      const check_state_in_webviewer = () => {
+      function check_state_in_webviewer () {
         window.reactGateway.gatewaySendStateToFM();
         console.log("'check_state_in_webviewer' was called");
       };
+
+      // keeps functions alive during tree shaking by the build process
+      window.send_data_to_webviewer = send_data_to_webviewer;
+      window.check_state_in_webviewer = check_state_in_webviewer;
+
     </script>
   </body>
 </html>
