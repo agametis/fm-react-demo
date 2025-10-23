@@ -3,16 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      @import "./style.css";
-    </style>
+    <link rel="stylesheet" href="./style.css" />
     <title>FM & React</title>
   </head>
   <body>
     <div className="container" id="app"></div>
-    <script type="module">
-      import "./index.tsx";
-    </script>
+    <script type="module" src="./index.tsx"></script>
     <!-- For calls directly from FileMaker -->
     <script type="text/javascript">
       function send_data_to_webviewer (param) {

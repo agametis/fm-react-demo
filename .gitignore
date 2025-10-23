@@ -60,9 +60,11 @@ typings/
 # dotenv environment variables file
 .env
 
-# Parcel related files
+# Build output
 dist/
-.parcel-cache/
+
+# Vite related files
+.vite/
 
 # VSCode related files
 *.code-workspace
