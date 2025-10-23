@@ -1,22 +1,22 @@
 # Bidirectional communication between FileMaker and React in WebViewer
 
-![Userinterface of the demofile](demo_UI.jpg)
+![User interface of the demo file](demo_UI.jpg)
 
 ## Why this demo
 
-With the package [fm-webviewer-fetch](https://github.com/proofgeist/fm-webviewer-fetch) we have a module for the communication with FileMaker from within the WebViewer. There is no standardized way to communicate from FileMaker to the WebViewer.
+With the package [fm-gofer](https://github.com/jwillinghalpern/fm-gofer) we have a module for communication with FileMaker from within the WebViewer. There is no standardized way to communicate from FileMaker to the WebViewer.
 
-This demo shows the communication in both directions for a React project.
+This demo shows bidirectional communication for a React project built with Vite.
 
 ## How to use it
 
-Load the repo.
+Clone the repository:
 
 ```bash
 git clone https://github.com/agametis/fm-react-demo.git
 ```
 
-Go into the folder `fm-react-demo` and run `yarn` to initialize the project.
+Go into the folder `fm-react-demo` and run `yarn` to install dependencies:
 
 ```bash
 cd fm-react-demo/
@@ -24,34 +24,38 @@ yarn
 ```
 
 > [!NOTE]
-> In case you are using `npm` change the calls for the appropriated scripts in `package.json`
+> If you are using `npm`, adjust the script calls in `package.json` accordingly.
 
-Start the development server.
+Start the development server:
 
 ```bash
-yarn start
+yarn dev
 ```
 
-Using the included FileMaker file `fmReactDemo.fmp12` you can access the running sever (dev = 1) or use the current version of the project in the FileMaker field "start::HTML" (dev = 0).
+Using the included FileMaker file `fmReactDemo.fmp12`, you can access the running server (dev = 1) or use the built version of the project from the FileMaker field "start::HTML" (dev = 0).
 
 > [!NOTE]
-> username and password for the file is: `admin`
+> Username and password for the file: `admin`
 
-> [!IMPORTANT]
-> Currently, in version 2.1.1 of the module `@proofgeist/fm-webviewer-fetch` you need to change the file references in the modules own `package.json` file (`./node_modules/@proofgeist/fm-webviewer-fetch/package.json`). Please update the following lines manually to:
+## Build for production
 
-```JSON
-  "main": "./dist/main.umd.cjs",
-  "browser": "./dist/main.umd.cjs",
-  "module": "./dist/main.cjs",
+Build the project for production use:
+
+```bash
+yarn build
 ```
+
+This creates a single HTML file in the `dist` folder using Vite with the following plugins:
+- `@vitejs/plugin-react` - React support
+- `vite-plugin-singlefile` - Bundles everything into a single HTML file
+- `vite-plugin-minify` - Minifies the output
 
 ## Using in FileMaker
 
 ### Manually
 
-The result of the nodejs-script `build` can be used directly in FileMaker. The content of the resulting `html` file in folder `dist` can be copied into the field `start::HTML` in FileMaker.
+The result of the build script can be used directly in FileMaker. The content of the resulting HTML file in the `dist` folder can be copied into the field `start::HTML` in FileMaker.
 
 ### Automated
 
-For an automated pasting of the content, the nodejs-script `deploy-to-fm` can be used. In order to have this working, the parameters in the `config.js` file in folder `tooling` must be properly set up.
+For automated deployment, the script `deploy-to-fm` can be used. To make this work, the parameters in the `config.js` file in the `tooling` folder must be properly configured.
