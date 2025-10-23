@@ -16,20 +16,20 @@ Clone the repository:
 git clone https://github.com/agametis/fm-react-demo.git
 ```
 
-Go into the folder `fm-react-demo` and run `yarn` to install dependencies:
+Go into the folder `fm-react-demo` and run `npm install` to install dependencies:
 
 ```bash
-cd fm-react-demo/
-yarn
+cd fm-react-demo
+npm install
 ```
 
 > [!NOTE]
-> If you are using `npm`, adjust the script calls in `package.json` accordingly.
+> If you are using `yarn`, adjust the script calls in `package.json` accordingly.
 
 Start the development server:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Using the included FileMaker file `fmReactDemo.fmp12`, you can access the running server (dev = 1) or use the built version of the project from the FileMaker field "start::HTML" (dev = 0).
@@ -42,7 +42,7 @@ Using the included FileMaker file `fmReactDemo.fmp12`, you can access the runnin
 Build the project for production use:
 
 ```bash
-yarn build
+npm run build
 ```
 
 This creates a single HTML file in the `dist` folder using Vite with the following plugins:

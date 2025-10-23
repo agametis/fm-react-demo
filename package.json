@@ -15,10 +15,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "upload": "node ./tooling/upload",
-    "deploy-to-fm": "yarn build && yarn upload"
+    "deploy-to-fm": "npm run build && npm run upload"
   },
   "dependencies": {
-    "@proofgeist/fm-webviewer-fetch": "^2.1.1",
     "fm-gofer": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
