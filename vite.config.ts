@@ -16,9 +16,4 @@ export default defineConfig({
     minify: true,
     emptyOutDir: true,
   },
-  resolve: {
-    alias: {
-      'fmFetch': '@proofgeist/fm-webviewer-fetch/dist/',
-    },
-  },
 });

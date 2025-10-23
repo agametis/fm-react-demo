@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
-import {fmFetch} from "@proofgeist/fm-webviewer-fetch";
+import FMGofer, { Option } from "fm-gofer";
 
-import {ReactGateway, ReactGatewayRef} from "./ReactGateway";
+import { ReactGateway, ReactGatewayRef } from "./ReactGateway";
 
-type TFmData = {value: string};
+type TFmData = { value: string };
 
 const Form: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
@@ -37,7 +37,11 @@ const Form: React.FC = () => {
       setValueStateBoolean(false);
 
       // send data to FileMaker
-      await fmFetch("ext_call_fm_script", params);
+      await FMGofer.PerformScriptWithOption(
+        "ext_call_fm_script",
+        params,
+        Option.SuspendAndResume
+      );
     } catch (err) {
       console.log(err.message);
     }
@@ -50,7 +54,11 @@ const Form: React.FC = () => {
       };
 
       // get data from FileMaker
-      const data: TFmData = await fmFetch("ext_call_fm_script", params);
+      const data: TFmData = await FMGofer.PerformScriptWithOption(
+        "ext_call_fm_script",
+        params,
+        Option.SuspendAndResume
+      ).json();
 
       // update value in input field
       setInputValue(data.value);
@@ -78,7 +86,11 @@ const Form: React.FC = () => {
     };
 
     // send data to FileMaker
-    await fmFetch("ext_call_fm_script", params);
+    await FMGofer.PerformScriptWithOption(
+      "ext_call_fm_script",
+      params,
+      Option.SuspendAndResume
+    );
   };
 
   return (
