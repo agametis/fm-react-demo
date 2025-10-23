@@ -4,15 +4,17 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 export default defineConfig({
+  root: 'src',
   plugins: [
     react(),
     viteSingleFile(),
     ViteMinifyPlugin(),
   ],
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     sourcemap: false,
     minify: true,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
